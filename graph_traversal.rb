@@ -3,14 +3,48 @@
 require 'rubygems'
 require 'rdf/raptor'
 
-def find_sub_organizations(uri)
-	graph = RDF::Graph.load(uri)
+class Org
+	attr_accessor :name, :uri, :sub_orgs
+
+	def initialize(name="",  uri="", sub_orgs=[])
+		@name = name
+		@uri = uri
+		@sub_orgs = sub_orgs
+	end
+
+	def to_s 
+		puts "Name: " + @name + "\n"
+		puts "URI: " + @uri + "\n"
+	end
+end
+
+
+def find_all_organizations(uri)
+	uri = generate_rdf_uri(uri)
+	#puts "Retrieving uri: " + uri + "\n"
+	begin 
+		graph = RDF::Graph.load(uri)
+	rescue
+	#	puts "Error retrieving uri : " + uri + "\n"
+		return nil
+	end
 	sub_org_uri = "http://vivoweb.org/ontology/core#hasSubOrganization"
 	sub_org_pred = RDF::URI.new(sub_org_uri)
+	label_uri = "http://www.w3.org/2000/01/rdf-schema#label"
+	label_pred = RDF::URI.new(label_uri)
+	name = graph.query(:predicate => label_pred)[0].object
+	name = (name != nil) ? name : ""
+
+	sub_org_uris = []
+	graph.query(:predicate => sub_org_pred).each_statement { |s| sub_org_uris.push(s.object.to_s) }
 	sub_orgs = []
-	graph.query(:predicate => sub_org_pred).each_statement { |s| sub_orgs.push(s.object) }
+	sub_org_uris.each do |sub_org_uri|
+		sub_org = find_all_organizations(sub_org_uri)
+		sub_orgs.push(sub_org)
+	end
+	org = Org.new(name, uri, sub_orgs)
 	
-	return sub_orgs
+	return org 
 end
 
 def generate_rdf_uri(uri)
@@ -18,22 +52,34 @@ def generate_rdf_uri(uri)
 	uri + "/" + uri.match(regex)[1] + ".rdf"
 end
 
-uf_uri = "http://vivo.ufl.edu/individual/UniversityofFlorida"
-uf_rdf_uri = generate_rdf_uri(uf_uri)
-puts uf_rdf_uri
-
-uf_key = "University of Florida"
-uf = { uf_key => [] }
-
-uf[uf_key] = find_sub_organizations(uf_rdf_uri)
-
-uf[uf_key].each do |sub_org| 
-	puts "\t" + sub_org + "\n"
-	depth = 2
-	sub_org = find_sub_organizations(generate_rdf_uri(sub_org.to_s))
-	sub_org.each do |x|
-		puts "\t" * depth + x + "\n"
+def pre_order_traversal(org) 
+	puts org.name.to_s + "\n"
+	depth = 1
+	if org.sub_orgs.size != 0
+		org.sub_orgs.each do |sub_org|
+			do_pre_order_traversal(sub_org, depth)
+		end
 	end
 end
+
+def do_pre_order_traversal(sub_org, depth)
+	if sub_org != nil
+		puts "\t" * depth + sub_org.name.to_s + "\n"
+		depth = depth + 1	
+		if sub_org.sub_orgs.size !=0
+			sub_org.sub_orgs.each do |sub_org|
+				do_pre_order_traversal(sub_org, depth)
+			end
+		end
+	end
+end	
+
+uf_uri = "http://vivo.ufl.edu/individual/UniversityofFlorida"
+puts uf_uri
+
+orgs = find_all_organizations(uf_uri)
+pre_order_traversal(orgs) 
+
+
 
 
