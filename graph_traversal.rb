@@ -106,7 +106,7 @@ puts uf_uri
 orgs = find_all_organizations(uf_uri)
 graph_as_string(orgs) 
 
-g = GraphViz.new(:G, "type" => "digraph", :size => "400,400")
+g = GraphViz.new(:G, "type" => "digraph")
 g.node[:margin] = 0.0
 g = graph_as_image(g, orgs)
-g.output(:pdf => "test.pdf")
+g.output(:svg => "fdp.svg", :use => "fdp")

@@ -1,0 +1,627 @@
+http://vivo.ufl.edu/individual/UniversityofFlorida
+"University of Florida"@en-us
+	"College of Fine Arts"@en-us
+		"School of Music"@en-us
+		"School of Theatre and Dance"@en-us
+		"Center for the Arts in Healthcare"@en-us
+		"School of Art and Art History"@en-us
+		"Digital Worlds Institute"@en-us
+		"Center for Arts and Public Policy"@en-us
+		"Center for World Arts"@en-us
+	"College of Health and Human Performance"@en-us
+		"Addictive and Health Behaviors Research Institute"@en-us
+		"Florida Center for Health Promotion"@en-us
+		"Center for Tourism Research and Development"@en-us
+		"Health Education and Behavior"@en-us
+		"Applied Physiology and Kinesiology"@en-us
+		"Tourism Recreation and Sport Management"@en-us
+	"George A. Smathers Libraries"@en-us
+		"Systems"@en-us
+		"Preservation"@en-us
+		"Access Services"@en-us
+		"Library Administration"@en-us
+		"Acquisition and Licensing"@en-us
+		"Cataloging and Metadata"@en-us
+	"Florida Sea Grant"@en-us
+	"Student Affairs"@en-us
+	"College of Nursing"@en-us
+		"Women's, Children's, and Family Nursing"@en-us
+		"Health Care Environments and Systems"@en-us
+		"Adult and Elderly Nursing"@en-us
+	"Center for Smell and Taste"@en-us
+	"Institute of Food and Agricultural Sciences (IFAS)"@en-us
+		"Florida Center for Renewable Chemicals and Fuels"@en-us
+		"North Florida REC (Marianna, Quincy, Suwannee Valley) "@en-us
+		"West Florida REC (Jay, Milton)"@en-us
+		"Wildlife Ecology and Conservation"@en-us
+		"Gulf Coast REC (Balm) "@en-us
+		"Food and Resources Economics"@en-us
+			"Center for Food Distribution and Retailing"@en-us
+		"Mid-Florida REC (Apopka, Plant City) "@en-us
+		"Citrus REC (Lake Alfred)"@en-us
+		"Florida’s Agricultural Experiment Station"@en-us
+		"Center for Subtropical Agroforestry"@en-us
+		"Biology"@en-us
+			"Howard T. Odum Center for Wetlands"@en-us
+		"Agricultural Education and Communication"@en-us
+		"Herbarium (FLAS)"@en-us
+		"Everglades REC (Belle Glade)"@en-us
+		"Agricultural and Biological Engineering"@en-us
+		"Entomology and Nematology"@en-us
+		"Tropical REC (Homestead) "@en-us
+		"Plant Pathology"@en-us
+		"Soil and Water Science"@en-us
+		"Indian River REC (Ft. Pierce) "@en-us
+		"Agronomy"@en-us
+		"Family, Youth and Community Sciences"@en-us
+		"Microbiology and Cell Science"@en-us
+		"Range Cattle REC (Ona) "@en-us
+		"Center for Aquatic and Invasive Plants"@en-us
+		"Southwest Florida REC (Immokalee) "@en-us
+		"Center for Organic Agriculture"@en-us
+		"Animal Sciences"@en-us
+		"Environmental Horticulture"@en-us
+		"Food Science and Human Nutrition"@en-us
+		"School of Natural Resources and Environment"@en-us
+		"Center for Remote Sensing"@en-us
+		"College of Agricultural and Life Sciences"@en-us
+			"Agricultural Education and Communication"@en-us
+			"Microbiology and Cell Science"@en-us
+			"Horticultural Sciences"@en-us
+			"Food Science and Human Nutrition"@en-us
+			"Soil and Water Science"@en-us
+			"Entomology and Nematology"@en-us
+			"Plant Pathology"@en-us
+			"School of Forest Resources and Conservation"@en-us
+				"Center for Subtropical Agroforestry"@en-us
+			"School of Natural Resources and Environment"@en-us
+			"Environmental Horticulture"@en-us
+			"International Agricultural Trade and Policy Center"@en-us
+			"Agricultural and Biological Engineering"@en-us
+			"Wildlife Ecology and Conservation"@en-us
+			"Statistics (IFAS)"@en-us
+			"Food and Resources Economics"@en-us
+				"Center for Food Distribution and Retailing"@en-us
+			"Biology"@en-us
+				"Howard T. Odum Center for Wetlands"@en-us
+			"Animal Sciences"@en-us
+			"Family, Youth and Community Sciences"@en-us
+		"Climate Institute"@en-us
+		"Florida Medical Entomology Laboratory REC  (Vero Beach) "@en-us
+		"Center for Tropical Agriculture"@en-us
+		"Horticultural Sciences"@en-us
+		"UF/IFAS Extension: Solutions for Your Life"@en-us
+			"Putnam County Extension Office"@en-us
+			"Wakulla County Extension Office"@en-us
+			"Calhoun County Extension Office"@en-us
+			"Monroe County Extension Office"@en-us
+			"Dixie County Extension Office"@en-us
+			"Liberty County Extension Office"@en-us
+			"Indian River County Extension Office"@en-us
+			"Suwannee County Extension Office"@en-us
+			"Walton County Extension Office"@en-us
+			"Union County Extension Office"@en-us
+			"Glades County Extension Office"@en-us
+			"Pinellas County Extension Office"@en-us
+			"Citrus County Extension Office"@en-us
+			"Polk County Extension Office"@en-us
+			"Hamilton County Extension Office"@en-us
+			"Hernando County Extension Office"@en-us
+			"Bay County Extension Office"@en-us
+			"Hendry County Extension Office"@en-us
+			"Volusia County Extension Office"@en-us
+			"Columbia County Extension Office"@en-us
+			"Madison County Extension Office"@en-us
+			"Nassau County Extension Office"@en-us
+			"Santa Rosa County Extension Office"@en-us
+			"St. Lucie County Extension Office"@en-us
+			"Duval County Extension Office"@en-us
+			"Equine Veterinary Extension"@en-us
+			"Washington County Extension Office"@en-us
+			"Hillsborough County Extension Office"@en-us
+			"Lee County Extension Office"@en-us
+			"Flagler County Extension Office"@en-us
+			"Jefferson County Extension Office"@en-us
+			"Martin County Extension Office"@en-us
+			"Lafayette County Extension Office"@en-us
+			"Manatee County Extension Office"@en-us
+			"Seminole Tribe Extension Office"@en-us
+			"Alachua County Extension Office"@en-us
+			"Lake County Extension Office"@en-us
+			"Marion County Extension Office"@en-us
+			"Osceola County Extension Office"@en-us
+			"St. Johns County Extension Office"@en-us
+			"Holmes County Extension Office"@en-us
+			"Okeechobee County Extension Office"@en-us
+			"Beef Veterinary Extension"@en-us
+			"Bradford County Extension Office"@en-us
+			"Sarasota County Extension Office"@en-us
+			"Leon County Extension Office"@en-us
+			"Sumter County Extension Office"@en-us
+			"Jackson County Extension Office"@en-us
+			"Highlands County Extension Office"@en-us
+			"Poultry Veterinary Extension"@en-us
+			"Dairy Veterinary Extension"@en-us
+			"Baker County Extension Office"@en-us
+			"Palm Beach County Extension Office"@en-us
+			"Gadsden County Extension Office"@en-us
+			"Broward County Extension Office"@en-us
+			"Gilchrist County Extension Office"@en-us
+			"Okaloosa County Extension Office"@en-us
+			"Taylor County Extension Office"@en-us
+			"Franklin County Extension Office"@en-us
+			"Brevard County Extension Office"@en-us
+			"Escambia County Extension Office"@en-us
+			"Seminole County Extension Office"@en-us
+			"Clay County Extension Office"@en-us
+			"Miami-Dade County Extension Office"@en-us
+			"Pasco County Extension Office"@en-us
+			"Desoto County Extension Office"@en-us
+			"Hardee County Extension Office"@en-us
+			"Orange County Extension Office"@en-us
+			"Collier County Extension Office"@en-us
+			"Gulf County Extension Office"@en-us
+			"Charlotte County Extension Office"@en-us
+			"Levy County Extension Office"@en-us
+		"Fort Lauderdale REC"@en-us
+		"College of Veterinary Medicine"@en-us
+			"Physiological Sciences"@en-us
+			"Center for Environmental and Human Toxicology"@en-us
+			"Infectious Diseases and Pathology"@en-us
+			"Beef Veterinary Extension"@en-us
+			"Large Animal Clinical Sciences"@en-us
+			"Poultry Veterinary Extension"@en-us
+			"Veterinary Medical Center"@en-us
+				"Large Animal Hospital"@en-us
+				"Small Animal Hospital"@en-us
+			"Small Animal Clinical Sciences"@en-us
+			"Dairy Veterinary Extension"@en-us
+			"Aquatic Animal Health"@en-us
+			"Equine Veterinary Extension"@en-us
+		"Statistics (IFAS)"@en-us
+		"School of Forest Resources and Conservation"@en-us
+			"Center for Subtropical Agroforestry"@en-us
+		"Center for Food Distribution and Retailing"@en-us
+	"Emerging Pathogens Institute"@en-us
+		"Infectious Disease Pharmacokinetics Laboratory"@en-us
+	"College of Pharmacy"@en-us
+		"Pharmacotherapy and Translational Research"@en-us
+			"Center For Pharmacogenomics"@en-us
+		"Center for Research in Pharmaceutical Care"@en-us
+		"Center for Drug Discovery"@en-us
+		"Pharmaceutical Outcomes and Policy "@en-us
+			"Perry A. Foote Outcomes Modeling Laboratory"@en-us
+		"Center for Drug Interaction Research and Education"@en-us
+		"Medicinal Chemistry"@en-us
+		"Pharmaceutics"@en-us
+		"Pharmacodynamics"@en-us
+	"College of Engineering"@en-us
+		"Agricultural and Biological Engineering"@en-us
+		"Civil and Coastal Engineering"@en-us
+			"McTrans Center"@en-us
+		"Integrated Electronics Center"@en-us
+		"Energy Analysis and Diagnostic Center"@en-us
+		"Water Resources Research Center"@en-us
+		"Computer Vision & Visualization Research Center"@en-us
+		"Nanoscience Institute for Medical and Engineering Technology"@en-us
+		"NSF Center for High-Performance Reconfigurable Computing"@en-us
+		"Computer and Information Science and Engineering"@en-us
+			"Database Systems Research Center"@en-us
+			"Center for Intelligent Machines and Robotics"@en-us
+		"Institute for Advanced Computer Research"@en-us
+		"Electrical and Computer Engineering"@en-us
+			"Center for Intelligent Machines and Robotics"@en-us
+		"William W. "Bill" Hinkley Center for Solid and Hazardous Waste Management"@en-us
+		"Materials Science and Engineering"@en-us
+			"Major Analytical Instrumentation Center"@en-us
+		"Particle Engineering Research Center"@en-us
+		"Center for Applied Optimization"@en-us
+		"Center for Intelligent Machines and Robotics"@en-us
+		"Center for Advanced Studies in Engineering"@en-us
+		"Database Systems Research Center"@en-us
+		"Center for Surface Science and Engineering"@en-us
+		"Florida Institute for Sustainable Energy"@en-us
+		"High Temperature Electrochemistry Center"@en-us
+		"Center for Nano-Bio Sensors"@en-us
+		"Nuclear and Radiological Engineering"@en-us
+			"Florida Institute for Sustainable Energy"@en-us
+		"Bridge Software Institute"@en-us
+		"Chemical Engineering"@en-us
+		"Software & Analysis of Advanced Materials Processing Center"@en-us
+		"Mineral Resources Research Center"@en-us
+		"Mechanical and Aerospace Engineering"@en-us
+			"Machine Tool Research Center"@en-us
+			"Center for Intelligent Machines and Robotics"@en-us
+		"Software Engineering Research Center"@en-us
+		"Mind-Machine Interaction Research Center"@en-us
+		"Environmental Engineering Sciences"@en-us
+			"Center for Environmental Policy"@en-us
+		"Center for Environmental Policy"@en-us
+		"J. Crayton Pruitt Family Department of Biomedical Engineering"@en-us
+		"Industrial and Systems Engineering"@en-us
+			"Supply Chain and Logistics Engineering Center"@en-us
+		"Interdisciplinary Center for Aeronomy and Atmospheric Sciences"@en-us
+	"Center for Nutritional Sciences"@en-us
+	"Office of the Provost & Senior Vice President for Academic Affairs"@en-us
+	"College of Veterinary Medicine"@en-us
+		"Physiological Sciences"@en-us
+		"Center for Environmental and Human Toxicology"@en-us
+		"Infectious Diseases and Pathology"@en-us
+		"Beef Veterinary Extension"@en-us
+		"Large Animal Clinical Sciences"@en-us
+		"Poultry Veterinary Extension"@en-us
+		"Veterinary Medical Center"@en-us
+			"Large Animal Hospital"@en-us
+			"Small Animal Hospital"@en-us
+		"Small Animal Clinical Sciences"@en-us
+		"Dairy Veterinary Extension"@en-us
+		"Aquatic Animal Health"@en-us
+		"Equine Veterinary Extension"@en-us
+	"College of Public Health and Health Professions"@en-us
+		"National Rural Behavioral Health Center"@en-us
+		"Rehabilitation Science"@en-us
+		"Florida Center for Medicaid and the Uninsured"@en-us
+		"Clinical and Health Psychology"@en-us
+		"Environmental and  Global Health"@en-us
+		"Occupational Therapy"@en-us
+		"Behavioral Science and Community Health"@en-us
+		"Physical Therapy"@en-us
+		"Communicative Disorders"@en-us
+		"Health Science"@en-us
+		"Epidemiology and Biostatistics"@en-us
+		"Center for Telehealth and Healthcare Communications"@en-us
+		"Health Services Research, Management and Policy"@en-us
+		"Institute for Mobility, Activity and Participation"@en-us
+		"Public Health"@en-us
+	"Florida Center for Library Automation"@en-us
+	"Levin College of Law"@en-us
+	"Information Technology"@en-us
+	"College of Agricultural and Life Sciences"@en-us
+		"Agricultural Education and Communication"@en-us
+		"Microbiology and Cell Science"@en-us
+		"Horticultural Sciences"@en-us
+		"Food Science and Human Nutrition"@en-us
+		"Soil and Water Science"@en-us
+		"Entomology and Nematology"@en-us
+		"Plant Pathology"@en-us
+		"School of Forest Resources and Conservation"@en-us
+			"Center for Subtropical Agroforestry"@en-us
+		"School of Natural Resources and Environment"@en-us
+		"Environmental Horticulture"@en-us
+		"International Agricultural Trade and Policy Center"@en-us
+		"Agricultural and Biological Engineering"@en-us
+		"Wildlife Ecology and Conservation"@en-us
+		"Statistics (IFAS)"@en-us
+		"Food and Resources Economics"@en-us
+			"Center for Food Distribution and Retailing"@en-us
+		"Biology"@en-us
+			"Howard T. Odum Center for Wetlands"@en-us
+		"Animal Sciences"@en-us
+		"Family, Youth and Community Sciences"@en-us
+	"Warrington College of Business Administration"@en-us
+		"Economics"@en-us
+		"Hough Graduate School of Business"@en-us
+		"Marketing"@en-us
+		"Information Systems and Operations Management"@en-us
+		"Finance Insurance and Real Estate"@en-us
+		"Fisher School of Accounting"@en-us
+		"Florida MBA Programs"@en-us
+		"School of Business"@en-us
+		"Management"@en-us
+	"Division of Continuing Education"@en-us
+	"College of Design, Construction and Planning"@en-us
+		"Historic Preservation Program"@en-us
+		"Interior Design"@en-us
+		"Urban and Regional Planning"@en-us
+		"Landscape Architecture"@en-us
+		"M.E. Rinker Sr. School of Building Construction"@en-us
+		"School of Architecture"@en-us
+	"Interdisciplinary Center for Biotechnology Research"@en-us
+	"College of Dentistry"@en-us
+		"Pediatric Dentistry"@en-us
+		"Periodontology"@en-us
+		"Oral and Maxillofacial Surgery"@en-us
+		"Community Dentistry and Behavioral Science"@en-us
+		"Oral Biology"@en-us
+		"Orthodontics"@en-us
+		"Oral and Maxillofacial Diagnostic Sciences"@en-us
+		"Prosthodontics"@en-us
+		"Endodontics"@en-us
+		"Operative Dentistry"@en-us
+	"Office of Research"@en-us
+		"Graduate School"@en-us
+	"Health Science Center"@en-us
+		"College of Veterinary Medicine"@en-us
+			"Physiological Sciences"@en-us
+			"Center for Environmental and Human Toxicology"@en-us
+			"Infectious Diseases and Pathology"@en-us
+			"Beef Veterinary Extension"@en-us
+			"Large Animal Clinical Sciences"@en-us
+			"Poultry Veterinary Extension"@en-us
+			"Veterinary Medical Center"@en-us
+				"Large Animal Hospital"@en-us
+				"Small Animal Hospital"@en-us
+			"Small Animal Clinical Sciences"@en-us
+			"Dairy Veterinary Extension"@en-us
+			"Aquatic Animal Health"@en-us
+			"Equine Veterinary Extension"@en-us
+		"College of Medicine"@en-us
+			"Radiation Oncology"@en-us
+			"Clinical and Translational Science Institute"@en-us
+			"Aging and Geriatric Research"@en-us
+			"Center for Epigenetics"@en-us
+			"Harrell Professional Development and Assessment Center"@en-us
+			"Neurosurgery"@en-us
+			"Center for Alcohol Research"@en-us
+			"Psychiatry"@en-us
+			"Rainbow Center at Jacksonville"@en-us
+			"Diabetes Center of Excellence"@en-us
+			"Center for Biostatistics and Epidemiology"@en-us
+			"Center for Clinical Trials Research"@en-us
+			"Pharmacology and Therapeutics"@en-us
+			"Pediatrics - Jacksonville"@en-us
+			"Pathology and Laboratory Medicine - Jacksonville"@en-us
+			"Center for Neurobiological Sciences"@en-us
+			"Alcohol Education Center"@en-us
+			"Institute for Child Health Policy"@en-us
+			"Emergency Medicine - Jacksonville"@en-us
+			"Medicine - Jacksonville"@en-us
+			"Community Health and Family Medicine - Jacksonville"@en-us
+			"Orthopaedics and Rehabilitation - Jacksonville"@en-us
+			"Physiology and Functional Genomics"@en-us
+				"Reproductive and Perinatal Biology Research Program"@en-us
+				"Hypertension Center"@en-us
+				"Medical Student Research Program"@en-us
+				"Program in Schizophrenia and Related Conditions"@en-us
+			"Diabetes Research, Education and Treatment Center"@en-us
+			"Urology"@en-us
+			"Epidemiology and Health Policy Research"@en-us
+			"Center for Neurobiology of Aging"@en-us
+			"Neuroscience"@en-us
+			"Center for Study of Lithiasis and Pathological Calcification"@en-us
+			"Center for Vision Research"@en-us
+			"Interdisciplinary Center for Musculoskeletal Training and Research"@en-us
+			"College of Medicine Education Center"@en-us
+			"Emergency Medicine"@en-us
+			"Center for Structural Biology"@en-us
+			"Ophthalmology - Jacksonville"@en-us
+			"Surgery - Jacksonville"@en-us
+			"Center for Autism and Related Disabilities"@en-us
+			"Psychiatry - Jacksonville"@en-us
+			"Neurology - Jacksonville"@en-us
+			"Anesthesiology - Jacksonville"@en-us
+			"Neurology"@en-us
+			"Ophthalmology"@en-us
+			"Institute on Aging"@en-us
+			"University of Florida Shands Cancer Center"@en-us
+			"Radiation Oncology - Jacksonville"@en-us
+			"Pathology, Immunology, and Laboratory Medicine"@en-us
+			"Center for Research on Women's Health"@en-us
+			"Molecular Genetics and Microbiology"@en-us
+			"Neurosurgery - Jacksonville"@en-us
+			"Obstetrics and Gynecology - Jacksonville"@en-us
+			"Powell Gene Therapy Center"@en-us
+			"Center for Immunology and Transplantation"@en-us
+			"Obstetrics and Gynecology"@en-us
+			"William R. Maples Center for Forensic Medicine"@en-us
+			"Radiology"@en-us
+			"Anatomy and Cell Biology"@en-us
+			"Biochemistry and Molecular Biology"@en-us
+			"Surgery"@en-us
+			"University of Florida Prostate Disease Center"@en-us
+			"Pediatrics"@en-us
+			"Medicine"@en-us
+				"Nephrology, Hypertension and Renal Transplantation"@en-us
+				"Infectious Diseases"@en-us
+				"Cardiovascular Medicine"@en-us
+				"Dermatology and Cutaneuos Surgery"@en-us
+				"Hematology and Oncology"@en-us
+				"Internal Medicine"@en-us
+				"Gastroenterology, Hepatology and Nutrition"@en-us
+				"Physician Assistant Program"@en-us
+				"Endocrinology, Diabetes and Metabolism"@en-us
+				"Rheumatology and Clinical Immunology"@en-us
+				"Computer Support Services"@en-us
+				"Pulmonary, Critical Care, and Sleep Medicine"@en-us
+			"Community Health and Family Medicine"@en-us
+			"Center for Neuropsychological Studies"@en-us
+			"Institute for Wound Research"@en-us
+			"Radiology - Jacksonville"@en-us
+			"Anesthesiology"@en-us
+			"Orthopaedics and Rehabilitation"@en-us
+			"Otolaryngology"@en-us
+		"College of Dentistry"@en-us
+			"Pediatric Dentistry"@en-us
+			"Periodontology"@en-us
+			"Oral and Maxillofacial Surgery"@en-us
+			"Community Dentistry and Behavioral Science"@en-us
+			"Oral Biology"@en-us
+			"Orthodontics"@en-us
+			"Oral and Maxillofacial Diagnostic Sciences"@en-us
+			"Prosthodontics"@en-us
+			"Endodontics"@en-us
+			"Operative Dentistry"@en-us
+		"College of Nursing"@en-us
+			"Women's, Children's, and Family Nursing"@en-us
+			"Health Care Environments and Systems"@en-us
+			"Adult and Elderly Nursing"@en-us
+		"College of Pharmacy"@en-us
+			"Pharmacotherapy and Translational Research"@en-us
+				"Center For Pharmacogenomics"@en-us
+			"Center for Research in Pharmaceutical Care"@en-us
+			"Center for Drug Discovery"@en-us
+			"Pharmaceutical Outcomes and Policy "@en-us
+				"Perry A. Foote Outcomes Modeling Laboratory"@en-us
+			"Center for Drug Interaction Research and Education"@en-us
+			"Medicinal Chemistry"@en-us
+			"Pharmaceutics"@en-us
+			"Pharmacodynamics"@en-us
+		"Public Health"@en-us
+	"Florida Museum of Natural History"@en-us
+	"Water Institute"@en-us
+	"College of Education"@en-us
+		"School of Human Development and Organizational Studies in Education"@en-us
+		"School of Teaching and Learning"@en-us
+		"Center for School Improvement"@en-us
+		"Center on Personnel Studies in Special Education"@en-us
+		"Lastinger Center for Learning"@en-us
+		"Institute of Higher Education "@en-us
+		"School of Special Education, School Psychology and Early Childhood Studies"@en-us
+	"Whitney Laboratory for Marine Bioscience"@en-us
+	"Office of the President"@en-us
+	"University of Florida Genetics Institute"@en-us
+	"College of Journalism and Communications"@en-us
+		"Journalism"@en-us
+		"Telecommunication"@en-us
+		"Advertising"@en-us
+		"Public Relations"@en-us
+	"College of Liberal Arts and Sciences"@en-us
+		"Institute for Psychological Study of the Arts"@en-us
+		"Center for Applied Optimization"@en-us
+		"William and Grace Dial Center for Written & Oral Communication "@en-us
+		"Center for Applied Mathematics"@en-us
+		"Center for African Studies"@en-us
+		"Physics"@en-us
+			"Institute for Fundamental Theory"@en-us
+			"Institute for High Energy Physics and Astrophysics"@en-us
+		"Center for Chemical Physics"@en-us
+		"Land Use and Environmental Change Institute"@en-us
+		"Institute for High Energy Physics and Astrophysics"@en-us
+		"Geological Sciences"@en-us
+			"Land Use and Environmental Change Institute"@en-us
+		"Bob Graham Center for Public Service"@en-us
+		"Language Learning Center"@en-us
+		"Biology"@en-us
+			"Howard T. Odum Center for Wetlands"@en-us
+		"Center for Chemical Research at the Bio/Nano Interface"@en-us
+		"Religion"@en-us
+		"Astronomy"@en-us
+		"Sociology and Criminology and Law"@en-us
+		"Center for Latin American Studies"@en-us
+		"Mathematics"@en-us
+			"Institute for Fundamental Theory"@en-us
+			"Center for Applied Optimization"@en-us
+			"Center for Applied Mathematics"@en-us
+		"Statistics (CLAS)"@en-us
+		"Center for Medieval and Early Modern Studies"@en-us
+		"Center for the Study of Hindu Traditions"@en-us
+		"Center for the Humanities and the Public Sphere"@en-us
+		"Center for Children's Literature and Culture"@en-us
+		"Political Science"@en-us
+		"Center for Greek Studies"@en-us
+		"Chemistry"@en-us
+			"Center for Chemical Research at the Bio/Nano Interface"@en-us
+			"Center for Macromolecular Science and Engineering"@en-us
+			"Center for Chemical Physics"@en-us
+			"Center for Catalysis"@en-us
+		"Philosophy"@en-us
+		"History"@en-us
+		"Psychology"@en-us
+		"English"@en-us
+			"Center for Film Studies and Media Studies"@en-us
+		"Paris Research Center"@en-us
+		"Askew Institute on Politics and Society"@en-us
+		"Center for European Studies"@en-us
+		"Spanish and Portuguese Studies"@en-us
+		"Languages, Literatures and Cultures"@en-us
+		"Center for Women's Studies & Gender Research"@en-us
+		"Classics"@en-us
+			"Center for Greek Studies"@en-us
+		"Center for Film Studies and Media Studies"@en-us
+		"Center for Catalysis"@en-us
+		"Geography"@en-us
+			"Land Use and Environmental Change Institute"@en-us
+		"UF Marine Laboratory at Seahorse Key"@en-us
+		"Center for Jewish Studies"@en-us
+		"Institute for Fundamental Theory"@en-us
+		"Anthropology"@en-us
+			"Land Use and Environmental Change Institute"@en-us
+		"France-Florida Research Institute"@en-us
+	"College of Medicine"@en-us
+		"Radiation Oncology"@en-us
+		"Clinical and Translational Science Institute"@en-us
+		"Aging and Geriatric Research"@en-us
+		"Center for Epigenetics"@en-us
+		"Harrell Professional Development and Assessment Center"@en-us
+		"Neurosurgery"@en-us
+		"Center for Alcohol Research"@en-us
+		"Psychiatry"@en-us
+		"Rainbow Center at Jacksonville"@en-us
+		"Diabetes Center of Excellence"@en-us
+		"Center for Biostatistics and Epidemiology"@en-us
+		"Center for Clinical Trials Research"@en-us
+		"Pharmacology and Therapeutics"@en-us
+		"Pediatrics - Jacksonville"@en-us
+		"Pathology and Laboratory Medicine - Jacksonville"@en-us
+		"Center for Neurobiological Sciences"@en-us
+		"Alcohol Education Center"@en-us
+		"Institute for Child Health Policy"@en-us
+		"Emergency Medicine - Jacksonville"@en-us
+		"Medicine - Jacksonville"@en-us
+		"Community Health and Family Medicine - Jacksonville"@en-us
+		"Orthopaedics and Rehabilitation - Jacksonville"@en-us
+		"Physiology and Functional Genomics"@en-us
+			"Reproductive and Perinatal Biology Research Program"@en-us
+			"Hypertension Center"@en-us
+			"Medical Student Research Program"@en-us
+			"Program in Schizophrenia and Related Conditions"@en-us
+		"Diabetes Research, Education and Treatment Center"@en-us
+		"Urology"@en-us
+		"Epidemiology and Health Policy Research"@en-us
+		"Center for Neurobiology of Aging"@en-us
+		"Neuroscience"@en-us
+		"Center for Study of Lithiasis and Pathological Calcification"@en-us
+		"Center for Vision Research"@en-us
+		"Interdisciplinary Center for Musculoskeletal Training and Research"@en-us
+		"College of Medicine Education Center"@en-us
+		"Emergency Medicine"@en-us
+		"Center for Structural Biology"@en-us
+		"Ophthalmology - Jacksonville"@en-us
+		"Surgery - Jacksonville"@en-us
+		"Center for Autism and Related Disabilities"@en-us
+		"Psychiatry - Jacksonville"@en-us
+		"Neurology - Jacksonville"@en-us
+		"Anesthesiology - Jacksonville"@en-us
+		"Neurology"@en-us
+		"Ophthalmology"@en-us
+		"Institute on Aging"@en-us
+		"University of Florida Shands Cancer Center"@en-us
+		"Radiation Oncology - Jacksonville"@en-us
+		"Pathology, Immunology, and Laboratory Medicine"@en-us
+		"Center for Research on Women's Health"@en-us
+		"Molecular Genetics and Microbiology"@en-us
+		"Neurosurgery - Jacksonville"@en-us
+		"Obstetrics and Gynecology - Jacksonville"@en-us
+		"Powell Gene Therapy Center"@en-us
+		"Center for Immunology and Transplantation"@en-us
+		"Obstetrics and Gynecology"@en-us
+		"William R. Maples Center for Forensic Medicine"@en-us
+		"Radiology"@en-us
+		"Anatomy and Cell Biology"@en-us
+		"Biochemistry and Molecular Biology"@en-us
+		"Surgery"@en-us
+		"University of Florida Prostate Disease Center"@en-us
+		"Pediatrics"@en-us
+		"Medicine"@en-us
+			"Nephrology, Hypertension and Renal Transplantation"@en-us
+			"Infectious Diseases"@en-us
+			"Cardiovascular Medicine"@en-us
+			"Dermatology and Cutaneuos Surgery"@en-us
+			"Hematology and Oncology"@en-us
+			"Internal Medicine"@en-us
+			"Gastroenterology, Hepatology and Nutrition"@en-us
+			"Physician Assistant Program"@en-us
+			"Endocrinology, Diabetes and Metabolism"@en-us
+			"Rheumatology and Clinical Immunology"@en-us
+			"Computer Support Services"@en-us
+			"Pulmonary, Critical Care, and Sleep Medicine"@en-us
+		"Community Health and Family Medicine"@en-us
+		"Center for Neuropsychological Studies"@en-us
+		"Institute for Wound Research"@en-us
+		"Radiology - Jacksonville"@en-us
+		"Anesthesiology"@en-us
+		"Orthopaedics and Rehabilitation"@en-us
+		"Otolaryngology"@en-us
+	"Environmental Health and Safety"@en-us
+	"Evelyn F. and William L. McKnight Brain Institute of the University of Florida"@en-us
+	"International Center"@en-us
