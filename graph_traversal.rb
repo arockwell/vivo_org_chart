@@ -2,6 +2,7 @@
 
 require 'rubygems'
 require 'rdf/raptor'
+require 'graphviz'
 
 class Org
 	attr_accessor :name, :uri, :sub_orgs
@@ -52,34 +53,60 @@ def generate_rdf_uri(uri)
 	uri + "/" + uri.match(regex)[1] + ".rdf"
 end
 
-def pre_order_traversal(org) 
+def graph_as_string(org) 
 	puts org.name.to_s + "\n"
 	depth = 1
 	if org.sub_orgs.size != 0
 		org.sub_orgs.each do |sub_org|
-			do_pre_order_traversal(sub_org, depth)
+			do_graph_as_string(sub_org, depth)
 		end
 	end
 end
 
-def do_pre_order_traversal(sub_org, depth)
+def do_graph_as_string(sub_org, depth)
 	if sub_org != nil
 		puts "\t" * depth + sub_org.name.to_s + "\n"
 		depth = depth + 1	
 		if sub_org.sub_orgs.size !=0
 			sub_org.sub_orgs.each do |sub_org|
-				do_pre_order_traversal(sub_org, depth)
+				do_graph_as_string(sub_org, depth)
 			end
 		end
 	end
 end	
 
+def graph_as_image(g, org) 
+	org_node = g.add_node(org.name.to_s)
+	if org.sub_orgs.size != 0
+		org.sub_orgs.each do |sub_org|
+			sub_org_node = g.add_node(sub_org.name.to_s)
+			g.add_edge(org_node, sub_org_node)
+			do_graph_as_image(g, sub_org, sub_org_node)
+		end
+	end
+	return g
+end
+
+def do_graph_as_image(g, org, org_node)
+	if org != nil
+		if org.sub_orgs.size !=0
+			org.sub_orgs.each do |sub_org|
+				if sub_org != nil 
+					sub_org_node = g.add_node(sub_org.name.to_s)
+					g.add_edge(org_node, sub_org_node)
+					do_graph_as_image(g, sub_org, sub_org_node)
+				end
+			end
+		end
+	end
+end	
 uf_uri = "http://vivo.ufl.edu/individual/UniversityofFlorida"
 puts uf_uri
 
 orgs = find_all_organizations(uf_uri)
-pre_order_traversal(orgs) 
+graph_as_string(orgs) 
 
-
-
-
+g = GraphViz.new(:G, "type" => "digraph", :size => "400,400")
+g.node[:margin] = 0.0
+g = graph_as_image(g, orgs)
+g.output(:pdf => "test.pdf")
