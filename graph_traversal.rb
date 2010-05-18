@@ -19,7 +19,39 @@ class Org
 	end
 end
 
+def find_all_colleges(uri)
+	uri = generate_rdf_uri(uri)
+	#puts "Retrieving uri: " + uri + "\n"
+	begin 
+		graph = RDF::Graph.load(uri)
+	rescue
+	#	puts "Error retrieving uri : " + uri + "\n"
+		return nil
+	end
+	sub_org_uri = "http://vivoweb.org/ontology/core#hasSubOrganization"
+	sub_org_pred = RDF::URI.new(sub_org_uri)
+	label_uri = "http://www.w3.org/2000/01/rdf-schema#label"
+	label_pred = RDF::URI.new(label_uri)
+	name = graph.query(:predicate => label_pred)[0].object.to_s
+	name = (name != nil) ? name : ""
+	name = name.match(/"([^"]*)"/)[0]
 
+	sub_org_uris = []
+	graph.query(:predicate => sub_org_pred).each_statement { |s| sub_org_uris.push(s.object.to_s) }
+	sub_orgs = []
+	sub_org_uris.each do |sub_org_uri|
+		sub_org_individual = RDF::Graph.load(generate_rdf_uri(sub_org_uri))
+		college_uri = "http://vivoweb.org/ontology/core#College"
+		college_pred = RDF::URI.new(college_uri)
+		if sub_org_individual.query(:object => college_pred).size != 0
+			sub_org = find_all_organizations(sub_org_uri)
+			sub_orgs.push(sub_org)
+		end
+	end
+	org = Org.new(name, uri, sub_orgs)
+	
+	return org 
+end
 def find_all_organizations(uri)
 	uri = generate_rdf_uri(uri)
 	#puts "Retrieving uri: " + uri + "\n"
@@ -33,8 +65,9 @@ def find_all_organizations(uri)
 	sub_org_pred = RDF::URI.new(sub_org_uri)
 	label_uri = "http://www.w3.org/2000/01/rdf-schema#label"
 	label_pred = RDF::URI.new(label_uri)
-	name = graph.query(:predicate => label_pred)[0].object
+	name = graph.query(:predicate => label_pred)[0].object.to_s
 	name = (name != nil) ? name : ""
+	name = name.match(/"([^"]*)"/)[0]
 
 	sub_org_uris = []
 	graph.query(:predicate => sub_org_pred).each_statement { |s| sub_org_uris.push(s.object.to_s) }
@@ -103,10 +136,11 @@ end
 uf_uri = "http://vivo.ufl.edu/individual/UniversityofFlorida"
 puts uf_uri
 
-orgs = find_all_organizations(uf_uri)
+orgs = find_all_colleges(uf_uri)
 graph_as_string(orgs) 
 
-g = GraphViz.new(:G, "type" => "digraph")
+g = GraphViz.new(:G, "type" => "digraph", :sep => "1", :size => "170,300", :overlap => "orthoyx")
 g.node[:margin] = 0.0
+g.node[:fontsize] = 12
 g = graph_as_image(g, orgs)
-g.output(:svg => "fdp.svg", :use => "fdp")
+g.output(:svg => "fdp.svg", :use => "twopi")
