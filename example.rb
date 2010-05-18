@@ -1,5 +1,13 @@
 #!/usr/bin/ruby
 
+# This is a script to traverse the organizational structure in vivo. This
+# script only works for UF. To modify to work with another university you 
+# must change two places:
+#
+# change the OrgChart.generate_rdf_uri method  
+#
+# change the uf_uri to point to your university organization in vivo
+
 require 'rubygems'
 require 'rdf/raptor'
 
@@ -93,6 +101,7 @@ class OrgChart
 end
 
 # Start uri for the org chart.
+# Change this uri to work with another university
 uf_uri = "http://vivo.ufl.edu/individual/UniversityofFlorida"
 puts uf_uri
 
