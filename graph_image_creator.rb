@@ -28,7 +28,7 @@ module Vivo
       label_pred = RDF::URI.new(Org::RDF_LABEL_URI)
       name = rdf.query(:predicate => label_pred)[0].object.to_s
       name = (name != nil) ? name : ""
-      name = name.match(/"([^"]*)"/)[0]
+      name = name.match(/"([^"]*)"/)[1]
 
       sub_org_uris = []
       rdf.query(:predicate => sub_org_pred).each_statement do |s| 
