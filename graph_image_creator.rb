@@ -45,7 +45,9 @@ def find_all_colleges(uri)
     college_pred = RDF::URI.new(college_uri)
     if sub_org_individual.query(:object => college_pred).size != 0
       sub_org = find_all_organizations(sub_org_uri)
-      sub_orgs.push(sub_org)
+      if sub_org != nil
+        sub_orgs.push(sub_org)
+      end
     end
   end
   org = Org.new(name, uri, sub_orgs)
@@ -74,7 +76,9 @@ def find_all_organizations(uri)
   sub_orgs = []
   sub_org_uris.each do |sub_org_uri|
     sub_org = find_all_organizations(sub_org_uri)
-    sub_orgs.push(sub_org)
+    if sub_org != nil
+      sub_orgs.push(sub_org)
+    end
   end
   org = Org.new(name, uri, sub_orgs)
   
