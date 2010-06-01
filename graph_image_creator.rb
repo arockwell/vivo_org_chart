@@ -178,10 +178,13 @@ module Vivo
   end
 end
 
-uf_uri = "http://vivo.ufl.edu/individual/UniversityofFlorida"
-puts uf_uri
+start_uri = "http://vivo.ufl.edu/individual/UniversityofFlorida"
+if ARGV.size == 1
+  start_uri = ARGV[0]
+end
+puts start_uri
 
-org_chart = Vivo::OrgChart.new(uf_uri)
+org_chart = Vivo::OrgChart.new(start_uri)
 org_chart.find_all_organizations
 
 Vivo::TextFormatter.format(org_chart)
