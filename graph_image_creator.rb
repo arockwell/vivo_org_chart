@@ -172,7 +172,7 @@ module Vivo
     end
 
     def self.generate_rdf_uri(uri)
-      regex = Regexp.new("http://vivo.ufl.edu/individual/(.+)")
+      regex = Regexp.new("individual/(.+)")
       uri + "/" + uri.match(regex)[1] + ".rdf"
     end
   end
