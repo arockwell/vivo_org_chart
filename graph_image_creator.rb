@@ -90,27 +90,31 @@ def generate_rdf_uri(uri)
   uri + "/" + uri.match(regex)[1] + ".rdf"
 end
 
-def graph_as_string(org) 
-  puts org.name.to_s + "\n"
-  depth = 1
+def traverse_graph(org, &block)
+  depth = 0
+  block.call org, depth
   if org.sub_orgs.size != 0
     org.sub_orgs.each do |sub_org|
-      do_graph_as_string(sub_org, depth)
+      do_traverse_graph(sub_org, depth, block)
     end
   end
 end
 
-def do_graph_as_string(sub_org, depth)
-  if sub_org != nil
-    puts "\t" * depth + sub_org.name.to_s + "\n"
-    depth = depth + 1 
-    if sub_org.sub_orgs.size !=0
-      sub_org.sub_orgs.each do |sub_org|
-        do_graph_as_string(sub_org, depth)
-      end
+def do_traverse_graph(org, depth, block)
+  block.call org, depth
+  depth = depth + 1
+  if org.sub_orgs.size != 0
+    org.sub_orgs.each do |sub_org|
+      do_traverse_graph(sub_org, depth, block)
     end
   end
-end 
+end
+
+def graph_as_string(org) 
+  traverse_graph(org) do |org, depth|
+    puts "\t" * depth + org.name.to_s + "\n"
+  end
+end
 
 def graph_as_image(g, org) 
   org_node = g.add_node(org.name.to_s)
