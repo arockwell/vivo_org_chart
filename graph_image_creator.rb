@@ -40,14 +40,24 @@ module Vivo
   end
 
   class OrgChart
-    def self.find_all_organizations(uri)
+    attr_accessor :root_uri, :root_org
+
+    def initialize(root_uri, graph=nil)
+      @root_uri = root_uri
+    end
+
+    def find_all_organizations
+      @root_org = do_find_all_organizations(@root_uri)
+    end
+
+    def do_find_all_organizations(uri)
       graph = RdfHelper.retrieve_uri(uri)
       return nil if graph == nil
 
       org = Org::build_from_rdf(uri, graph)
       sub_orgs = []
       org.sub_org_uris.each do |sub_org_uri|
-        sub_org = find_all_organizations(sub_org_uri)
+        sub_org = do_find_all_organizations(sub_org_uri)
         if sub_org != nil
           sub_orgs.push(sub_org)
         end
@@ -56,17 +66,17 @@ module Vivo
       return org 
     end
 
-    def self.traverse_graph(org, &block)
+    def traverse_graph(&block)
       depth = 0
-      block.call org, depth
-      if org.sub_orgs.size != 0
-        org.sub_orgs.each do |sub_org|
+      block.call @root_org, depth
+      if @root_org.sub_orgs.size != 0
+        @root_org.sub_orgs.each do |sub_org|
           do_traverse_graph(sub_org, depth, block)
         end
       end
     end
 
-    def self.do_traverse_graph(org, depth, block)
+    def do_traverse_graph(org, depth, block)
       block.call org, depth
       depth = depth + 1
       if org.sub_orgs.size != 0
@@ -75,15 +85,19 @@ module Vivo
         end
       end
     end
+  end
 
-    def self.graph_as_string(org) 
-      traverse_graph(org) do |org, depth|
+  class TextFormatter
+    def self.format(org_chart)
+      org_chart.traverse_graph do |org, depth|
         puts "\t" * depth + org.name.to_s + "\n"
       end
     end
+  end
 
-    def self.graph_as_image(g, org) 
-      traverse_graph(org) do |org, depth|
+  class GraphvizFormatter
+    def self.format(g, org_chart)
+      org_chart.traverse_graph do |org, depth|
         org_node = g.add_node(org.name.to_s)
         if org.sub_orgs.size != 0
           org.sub_orgs.each do |sub_org|
@@ -115,11 +129,13 @@ end
 uf_uri = "http://vivo.ufl.edu/individual/UniversityofFlorida"
 puts uf_uri
 
-orgs = Vivo::OrgChart.find_all_organizations(uf_uri)
-Vivo::OrgChart.graph_as_string(orgs) 
+org_chart = Vivo::OrgChart.new(uf_uri)
+org_chart.find_all_organizations
+
+Vivo::TextFormatter.format(org_chart)
 
 g = GraphViz.new(:G, "type" => "digraph", :sep => "1", :size => "170,300", :overlap => "orthoyx")
 g.node[:margin] = 0.0
 g.node[:fontsize] = 12
-g = Vivo::OrgChart.graph_as_image(g, orgs)
+g = Vivo::GraphvizFormatter.format(g, org_chart)
 g.output(:svg => "fdp.svg", :use => "twopi")
