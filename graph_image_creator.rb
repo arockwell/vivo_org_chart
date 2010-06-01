@@ -83,30 +83,17 @@ module Vivo
     end
 
     def self.graph_as_image(g, org) 
-      org_node = g.add_node(org.name.to_s)
-      if org.sub_orgs.size != 0
-        org.sub_orgs.each do |sub_org|
-          sub_org_node = g.add_node(sub_org.name.to_s)
-          g.add_edge(org_node, sub_org_node)
-          do_graph_as_image(g, sub_org, sub_org_node)
+      traverse_graph(org) do |org, depth|
+        org_node = g.add_node(org.name.to_s)
+        if org.sub_orgs.size != 0
+          org.sub_orgs.each do |sub_org|
+            sub_org_node = g.add_node(sub_org.name.to_s)
+            g.add_edge(org_node, sub_org_node)
+          end
         end
       end
       return g
     end
-
-    def self.do_graph_as_image(g, org, org_node)
-      if org != nil
-        if org.sub_orgs.size !=0
-          org.sub_orgs.each do |sub_org|
-            if sub_org != nil 
-              sub_org_node = g.add_node(sub_org.name.to_s)
-              g.add_edge(org_node, sub_org_node)
-              do_graph_as_image(g, sub_org, sub_org_node)
-            end
-          end
-        end
-      end
-    end 
   end
 
   class RdfHelper
