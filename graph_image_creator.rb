@@ -110,6 +110,58 @@ module Vivo
     end
   end
 
+  class GraphMLFormatter
+    def self.format(org_chart)
+      output = GRAPH_HEADER
+      node_counter = 0
+      edge_counter = 0
+
+      org_chart.traverse_graph do |org, depth|
+        parent_node_name = "n#{node_counter}"
+        output += create_node(parent_node_name, org.name.to_s)
+        if org.sub_orgs.size != 0
+          org.sub_orgs.each do |sub_org|
+            node_counter = node_counter + 1
+            output += create_node("n#{node_counter}", sub_org.name.to_s)
+            edge_name = "#{parent_node_name}n#{node_counter}"
+            output += create_edge(edge_name, parent_node_name, "n#{node_counter}")
+          end
+        end
+      end
+
+      output += GRAPH_FOOTER
+    end
+
+    private
+    GRAPH_HEADER = <<-EOH
+      <graphml xmlns="http://graphml.graphdrawing.org/xmlns"  
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+          http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+        <graph id="G" edgedefault="directed">
+    EOH
+
+    GRAPH_FOOTER = <<-EOH
+      </graph>
+    </graphml>
+    EOH
+
+    def self.create_node(node_name, node_description)
+      output = <<-EOH
+          <node id="#{node_name}"/>
+      EOH
+      return output
+    end
+
+    def self.create_edge(edge_name, source, target)
+      output = <<-EOH
+          <edge id="#{edge_name}" source="#{source}" target="#{target}" />
+      EOH
+      return output
+    end
+  end
+
+
   class RdfHelper
     def self.retrieve_uri(uri)
       begin 
@@ -139,3 +191,5 @@ g.node[:margin] = 0.0
 g.node[:fontsize] = 12
 g = Vivo::GraphvizFormatter.format(g, org_chart)
 g.output(:svg => "fdp.svg", :use => "twopi")
+
+File.open("graphml.xml", "w") {|f| f.write(Vivo::GraphMLFormatter.format(org_chart)) }
