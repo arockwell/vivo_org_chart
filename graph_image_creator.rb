@@ -9,11 +9,12 @@ module Vivo
     HAS_SUB_ORG_URI = "http://vivoweb.org/ontology/core#hasSubOrganization"
     RDF_LABEL_URI = "http://www.w3.org/2000/01/rdf-schema#label"
 
-    attr_accessor :name, :uri, :sub_org_uris, :sub_orgs
+    attr_accessor :name, :uri, :parent_org, :sub_org_uris, :sub_orgs
 
-    def initialize(name="",  uri="", sub_org_uris=[], sub_orgs=[])
+    def initialize(name="",  uri="", parent_org=nil, sub_org_uris=[], sub_orgs=[])
       @name = name
       @uri = uri
+      @parent_org = parent_org
       @sub_org_uris = sub_org_uris
       @sub_orgs = sub_orgs
     end
@@ -23,7 +24,7 @@ module Vivo
       puts "URI: " + @uri + "\n"
     end
 
-    def self.build_from_rdf(uri, rdf)
+    def self.build_from_rdf(uri, parent_org, rdf)
       sub_org_pred = RDF::URI.new(Org::HAS_SUB_ORG_URI)
       label_pred = RDF::URI.new(Org::RDF_LABEL_URI)
       name = rdf.query(:predicate => label_pred)[0].object.to_s
@@ -35,7 +36,7 @@ module Vivo
         sub_org_uris.push(s.object.to_s) 
       end
 
-      return Org.new(name, uri, sub_org_uris)
+      return Org.new(name, uri, parent_org, sub_org_uris)
     end
   end
 
@@ -47,17 +48,17 @@ module Vivo
     end
 
     def find_all_organizations
-      @root_org = do_find_all_organizations(@root_uri)
+      @root_org = do_find_all_organizations(@root_uri, nil)
     end
 
-    def do_find_all_organizations(uri)
+    def do_find_all_organizations(uri, parent_org)
       graph = RdfHelper.retrieve_uri(uri)
       return nil if graph == nil
 
-      org = Org::build_from_rdf(uri, graph)
+      org = Org::build_from_rdf(uri, parent_org, graph)
       sub_orgs = []
       org.sub_org_uris.each do |sub_org_uri|
-        sub_org = do_find_all_organizations(sub_org_uri)
+        sub_org = do_find_all_organizations(sub_org_uri, org)
         if sub_org != nil
           sub_orgs.push(sub_org)
         end
@@ -99,13 +100,11 @@ module Vivo
     def self.format(g, org_chart)
       org_chart.traverse_graph do |org, depth|
         org_node = g.add_node(org.name.to_s)
-        if org.sub_orgs.size != 0
-          org.sub_orgs.each do |sub_org|
-            sub_org_node = g.add_node(sub_org.name.to_s)
-            g.add_edge(org_node, sub_org_node)
-          end
+        if org.parent_org != nil
+          g.add_edge(g.get_node(org.parent_org.name.to_s), org_node)
         end
       end
+
       return g
     end
   end
@@ -114,48 +113,55 @@ module Vivo
     def self.format(org_chart)
       output = GRAPH_HEADER
       node_counter = 0
-      edge_counter = 0
 
+      node_output = ""
+      edge_output = ""
+
+      node_refs = {}
       org_chart.traverse_graph do |org, depth|
-        parent_node_name = "n#{node_counter}"
-        output += create_node(parent_node_name, org.name.to_s)
-        if org.sub_orgs.size != 0
-          org.sub_orgs.each do |sub_org|
-            node_counter = node_counter + 1
-            output += create_node("n#{node_counter}", sub_org.name.to_s)
-            edge_name = "#{parent_node_name}n#{node_counter}"
-            output += create_edge(edge_name, parent_node_name, "n#{node_counter}")
-          end
+        node_counter = node_counter + 1
+        node_name = "n#{node_counter}"
+        node_output += create_node(node_name, org.name.to_s)
+        node_refs[org.name.to_s] = node_name
+
+        if org.parent_org != nil
+          edge_name = "#{node_refs[org.parent_org.name.to_s]}#{node_name}"
+          edge_output += create_edge(edge_name, node_refs[org.parent_org.name.to_s], node_name)
         end
       end
+      output += node_output + edge_output
 
       output += GRAPH_FOOTER
     end
 
     private
     GRAPH_HEADER = <<-EOH
-      <graphml xmlns="http://graphml.graphdrawing.org/xmlns"  
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-          xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
-          http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
-        <graph id="G" edgedefault="directed">
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+    http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <graph id="G" edgedefault="directed">
+    <key id="label" for="node" attr.name="label" attr.type="string" />
     EOH
 
     GRAPH_FOOTER = <<-EOH
-      </graph>
-    </graphml>
+  </graph>
+</graphml>
     EOH
 
     def self.create_node(node_name, node_description)
       output = <<-EOH
-          <node id="#{node_name}"/>
+    <node id="#{node_name}">
+      <data key="label">#{node_description}</data>
+    </node> 
       EOH
       return output
     end
 
     def self.create_edge(edge_name, source, target)
       output = <<-EOH
-          <edge id="#{edge_name}" source="#{source}" target="#{target}" />
+    <edge id="#{edge_name}" source="#{source}" target="#{target}" />
       EOH
       return output
     end
