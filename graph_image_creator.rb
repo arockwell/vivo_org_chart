@@ -2,9 +2,6 @@
 
 require 'rubygems'
 require 'vivo_org_chart'
-require 'rdf/raptor'
-require 'graphviz'
-
 
 start_uri = "http://vivo.ufl.edu/individual/UniversityofFlorida"
 if ARGV.size == 1
@@ -24,3 +21,5 @@ g = VivoOrgChart::GraphvizFormatter.format(g, org_chart)
 g.output(:svg => "fdp.svg", :use => "twopi")
 
 File.open("graphml.xml", "w") {|f| f.write(VivoOrgChart::GraphMLFormatter.format(org_chart)) }
+
+org_chart.serialize('uf_org.nt')
