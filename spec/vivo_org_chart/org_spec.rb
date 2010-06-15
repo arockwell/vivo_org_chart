@@ -11,5 +11,18 @@ module VivoOrgChart
       org.sub_org_uris.size.should == 38
     end
 
+    it "should return org serialized as rdf" do
+      org = Org.new("test", "test_uri", nil)
+      sub1 = Org.new("sub1", "sub1_uri", org)
+      sub2 = Org.new("sub2", "sub2_uri", org)
+      org.sub_orgs << sub1
+      org.sub_orgs << sub2
+
+      statements = []
+
+      org.each_statement { |s| statements << s }
+      statements.size.should == 3
+    end
+
   end
 end

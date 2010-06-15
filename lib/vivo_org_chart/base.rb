@@ -6,13 +6,22 @@ module VivoOrgChart
       @root_uri = root_uri
     end
 
-    def find_all_organizations
-      @root_org = do_find_all_organizations(@root_uri, nil)
+    def find_all_organizations(filename=nil)
+      if filename == nil
+        @root_org = do_find_all_organizations(@root_uri, nil)
+      else
+        @graph = RDF::Graph.load(filename)
+        @root_org = do_find_all_organizations(@root_uri, nil)
+      end
     end
 
     def do_find_all_organizations(uri, parent_org)
-      graph = RdfHelper.retrieve_uri(uri)
-      return nil if graph == nil
+      if @graph == nil
+        graph = RdfHelper.retrieve_uri(uri)
+        return nil if graph == nil
+      else
+        graph = @graph
+      end
 
       org = Org::build_from_rdf(uri, parent_org, graph)
       sub_orgs = []
@@ -42,6 +51,16 @@ module VivoOrgChart
       if org.sub_orgs.size != 0
         org.sub_orgs.each do |sub_org|
           do_traverse_graph(sub_org, depth, block)
+        end
+      end
+    end
+
+    def serialize(filename)
+      RDF::Writer.open(filename) do |writer|
+        self.traverse_graph do |org, depth|
+          org.each_statement do |statement|
+            writer << statement
+          end
         end
       end
     end

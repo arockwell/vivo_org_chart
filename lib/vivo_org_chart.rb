@@ -3,6 +3,7 @@ end
 
 require 'rubygems'
 require 'rdf/raptor'
+require 'rdf/ntriples'
 require 'graphviz'
 
 require 'vivo_org_chart/base'
