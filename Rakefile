@@ -4,7 +4,7 @@ require 'rake/gempackagetask'
 
 spec = Gem::Specification.new do |s|
   s.name = "VivoOrgChart"
-  s.version = "0.0.3"
+  s.version = "0.1"
   s.author = "Alex Rockwell"
   s.email = "alexhr@ufl.edu"
   s.homepage = "http://vivo.ufl.edu"
