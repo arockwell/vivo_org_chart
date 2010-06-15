@@ -2,7 +2,7 @@ module VivoOrgChart
   class Base
     attr_accessor :root_uri, :root_org
 
-    def initialize(root_uri, graph=nil)
+    def initialize(root_uri)
       @root_uri = root_uri
     end
 
