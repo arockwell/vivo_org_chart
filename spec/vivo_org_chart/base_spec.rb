@@ -8,6 +8,9 @@ module VivoOrgChart
       org_chart.find_all_organizations
       org_chart.root_org.name.should == "College of Education"
       org_chart.root_org.sub_orgs.size.should == 7
+      # I would like to be able to log in and check this, but don't want 
+      # passwords in git
+      #org_chart.root_org.dept_ids.size.should == 24
     end
 
     it "should find an organization and all sub orgs in vivo given a file" do

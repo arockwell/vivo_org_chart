@@ -6,18 +6,21 @@ module VivoOrgChart
       @root_uri = root_uri
     end
 
-    def find_all_organizations(filename=nil)
+    def find_all_organizations(filename=nil, opts={})
       if filename == nil
-        @root_org = do_find_all_organizations(@root_uri, nil)
+        @root_org = do_find_all_organizations(@root_uri, nil, opts)
       else
         @graph = RDF::Graph.load(filename)
         @root_org = do_find_all_organizations(@root_uri, nil)
       end
     end
 
-    def do_find_all_organizations(uri, parent_org)
+    def do_find_all_organizations(uri, parent_org, opts={})
       if @graph == nil
-        graph = RdfHelper.retrieve_uri(uri)
+        if (opts.has_key?(:username) && opts.has_key?(:password))
+          agent = Authenticate.authenticate
+        end
+        graph = RdfHelper.retrieve_uri(uri, agent)
         return nil if graph == nil
       else
         graph = @graph

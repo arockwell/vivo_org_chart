@@ -6,6 +6,7 @@ require 'rdf/raptor'
 require 'rdf/ntriples'
 require 'graphviz'
 
+require 'vivo_org_chart/authenticate'
 require 'vivo_org_chart/base'
 require 'vivo_org_chart/formatter'
 require 'vivo_org_chart/org'
