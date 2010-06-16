@@ -1,11 +1,16 @@
 module VivoOrgChart
   class Org
-    HAS_SUB_ORG_URI = "http://vivoweb.org/ontology/core#hasSubOrganization"
-    RDF_LABEL_URI = "http://www.w3.org/2000/01/rdf-schema#label"
+    SINGLE_VALUE_PROPERTIES = {
+      :name => "http://www.w3.org/2000/01/rdf-schema#label",
+    }
+    MULTI_VALUE_PROPERTIES = {
+      :sub_org_uris => "http://vivoweb.org/ontology/core#hasSubOrganization",
+      :dept_ids => "http://vivo.ufl.edu/ontology/vivo-ufl/deptID",
+    }
 
-    attr_accessor :name, :uri, :parent_org, :sub_org_uris, :sub_orgs
+    attr_accessor :name, :uri, :parent_org, :sub_org_uris, :sub_orgs, :dept_ids
 
-    def initialize(name="",  uri="", parent_org=nil, sub_org_uris=[], sub_orgs=[])
+    def initialize(name="",  uri="", parent_org=nil, sub_org_uris=[], sub_orgs=[], dept_id = [])
       @name = name
       @uri = uri
       @parent_org = parent_org
@@ -14,28 +19,48 @@ module VivoOrgChart
     end
 
     def self.build_from_rdf(uri, parent_org, rdf)
-      sub_org_pred = RDF::URI.new(Org::HAS_SUB_ORG_URI)
-      label_pred = RDF::URI.new(Org::RDF_LABEL_URI)
       rdf_uri = RDF::URI.new(uri)
-      name = rdf.query(:subject => rdf_uri, 
-                       :predicate => label_pred)[0].object.to_s
-      name = (name != nil) ? name : ""
-      name = name.match(/"([^"]*)"/)[1]
 
-      sub_org_uris = []
-      rdf.query(:subject => rdf_uri, 
-                :predicate => sub_org_pred).each_statement do |s| 
-        sub_org_uris.push(s.object.to_s) 
+      org = Org.new
+      org.uri = uri
+
+      SINGLE_VALUE_PROPERTIES.each do |k, v|
+        query = rdf.query(:subject => rdf_uri, :predicate => RDF::URI.new(v))
+        if query[0] != nil
+          value = query[0].object.literal? ? query[0].object.value : query[0].object.to_s
+          org.send(k.to_s + '=', value)
+        end
       end
 
-      return Org.new(name, uri, parent_org, sub_org_uris)
+      MULTI_VALUE_PROPERTIES.each do |k, v|
+        query = rdf.query(:subject => rdf_uri, :predicate => RDF::URI.new(v))
+        if query.size > 0
+          a = []
+          query.each do |q|
+            value = q.object.literal? ? q.object.value : q.object.to_s
+            a << value
+          end
+          org.send(k.to_s + '=', a)
+        end
+      end
+      return org
     end
 
     def each_statement(&block)
       statements = []
-      statements << RDF::Statement.new(RDF::URI.new(@uri), RDF::URI.new(RDF_LABEL_URI), @name)
-      sub_orgs.each do |sub_orgs|
-        statements << RDF::Statement.new(RDF::URI.new(@uri), RDF::URI.new(HAS_SUB_ORG_URI), RDF::URI.new(sub_orgs.uri))
+
+      SINGLE_VALUE_PROPERTIES.each do |k, v|
+        if self.send(k) != nil
+          statements << RDF::Statement.new(RDF::URI.new(@uri), RDF::URI.new(v), self.send(k))
+        end
+      end
+      
+      MULTI_VALUE_PROPERTIES.each do |k, v|
+        if self.send(k) != nil && self.send(k).size > 0
+          self.send(k).each do |value|
+            statements << RDF::Statement.new(RDF::URI.new(@uri), RDF::URI.new(v), value)
+          end
+        end
       end
       
       statements.each do |statement|
