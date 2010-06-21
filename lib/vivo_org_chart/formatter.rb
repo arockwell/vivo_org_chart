@@ -10,13 +10,12 @@ module VivoOrgChart
   class CsvFormatter
     def self.format(org_chart)
       org_chart.traverse_graph do |org, depth|
-        if org.dept_ids != nil && org.dept_ids.size > 0
-          org.dept_ids.each do |dept_id|
-            puts "\"#{org.name}\",\"#{dept_id}\""
-          end
-        else
-          puts org.name + ","
-        end
+        #if org.dept_ids != nil && org.dept_ids.size > 0
+        #  org.dept_ids.each do |dept_id|
+        #    puts "\"#{org.uri}\",#{org.name}\",\"#{dept_id}\""
+        #  end
+        #else
+          puts "\"#{org.name}\",\"#{org.uri}\""
       end
     end
   end
