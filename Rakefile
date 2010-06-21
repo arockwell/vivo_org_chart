@@ -4,7 +4,7 @@ require 'rake/gempackagetask'
 
 spec = Gem::Specification.new do |s|
   s.name = "VivoOrgChart"
-  s.version = "0.2"
+  s.version = "0.3"
   s.author = "Alex Rockwell"
   s.email = "alexhr@ufl.edu"
   s.homepage = "http://vivo.ufl.edu"
@@ -14,6 +14,7 @@ spec = Gem::Specification.new do |s|
   s.has_rdoc = false
   s.add_runtime_dependency 'rdf-raptor'
   s.add_runtime_dependency 'ruby-graphviz'
+  s.add_runtime_dependency 'mechanize'
 end
 
 Rake::GemPackageTask.new(spec) do |pkg|
