@@ -58,6 +58,41 @@ module VivoOrgChart
       end
     end
 
+    def prune(&block)
+      depth = 0
+      if block.call @root_org, depth
+        @root_org = nil
+      elsif @root_org.sub_orgs.size != 0
+        depth = depth + 1
+        new_sub_orgs = []
+        @root_org.sub_orgs.each do |sub_org|
+          unless block.call sub_org, depth
+            new_sub_orgs << sub_org
+          end
+        end
+        @root_org.sub_orgs = new_sub_orgs
+        @root_org.sub_orgs.each do |sub_org|
+          do_prune(sub_org, depth, block)
+        end
+      end
+    end
+
+    def do_prune(org, depth, block)
+      new_sub_orgs = []
+      if org.sub_orgs.size != 0
+        depth = depth + 1
+        org.sub_orgs.each do |sub_org|
+          unless block.call sub_org, depth
+            new_sub_orgs << sub_org
+          end
+        end
+        org.sub_orgs = new_sub_orgs
+        org.sub_orgs.each do |sub_org|
+          do_prune(sub_org, depth, block)
+        end
+      end
+    end
+
     def serialize(filename)
       RDF::Writer.open(filename) do |writer|
         self.traverse_graph do |org, depth|

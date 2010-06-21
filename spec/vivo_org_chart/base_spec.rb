@@ -50,6 +50,28 @@ module VivoOrgChart
       end
     end
 
+    it "should prune branches of the graph" do
+      org = Org.new("test_org", "test_org_uri", nil, "test1")
+      org.sub_orgs <<  Org.new("test_sub_org", "test_sub_org_uri", org)
+      org.sub_orgs << Org.new("test_sub_org2", "test_sub_org_uri", org)
+      org.sub_orgs << Org.new("sub_org", "test_sub_org_uri", org)
+
+      sub_sub_org = Org.new("sub_sub_org", "sub_sub_org", org.sub_orgs[1])
+
+      org_chart = VivoOrgChart::Base.new("test_org_uri")
+      org_chart.root_org = org
+
+      org_chart.prune do |org, depth|
+        if org.name.match(/^test_sub_org/)
+          true
+        else 
+          false
+        end
+      end
+
+      org_chart.root_org.sub_orgs.size.should == 1
+    end
+
     it "should serialize the output in n3" do
       org = Org.new("test_org", "test_org_uri", nil, "test1")
       sub_org = Org.new("test_sub_org", "test_sub_org_uri", org)
