@@ -23,6 +23,7 @@ module VivoOrgChart
 
       org = Org.new
       org.uri = uri
+      org.parent_org = parent_org
 
       SINGLE_VALUE_PROPERTIES.each do |k, v|
         query = rdf.query(:subject => rdf_uri, :predicate => RDF::URI.new(v))

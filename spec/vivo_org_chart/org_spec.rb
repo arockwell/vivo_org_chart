@@ -10,6 +10,13 @@ module VivoOrgChart
       org.name.should == "University of Florida"
       org.parent_org.should == nil
       org.sub_org_uris.size.should == 38
+
+      uri = "http://vivo.ufl.edu/individual/CollegeofEngineering"
+      graph = RdfHelper.retrieve_uri(uri)
+      sub_org = Org.build_from_rdf(uri, org, graph)
+      sub_org.uri.should == uri
+      sub_org.name.should == "College of Engineering"
+      sub_org.parent_org.should == org
     end
 
     it "should return org serialized as rdf" do
