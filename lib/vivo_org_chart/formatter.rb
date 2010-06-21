@@ -75,6 +75,7 @@ module VivoOrgChart
     EOH
 
     def self.create_node(node_name, node_description)
+      node_description.gsub!('&', 'and')
       output = <<-EOH
     <node id="#{node_name}">
       <data key="label">#{node_description}</data>
