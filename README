@@ -1,36 +1,16 @@
 VIVO Org Chart Creator
 
-These are small scripts to extract the org chart structure from vivo.
+This gem facilitates crawling and extracting the organization structure from Vivo.
 
 INSTALLATION
 
-example.rb requires the RDF::Raptor gem to work.
+gem sources -a http://gems.github.com
+gem install arockwell-vivo_org_chart
 
-Install the gem with:
-sudo gem install rdf rdf-raptor.
+This gem requires rdf-raptor, ruby-graphviz, and mechanize.
 
-The RDF::Raptor gem requires the Raptor RDF Parser to install. 
+EXAMPLES
 
-On centos: sudo yum install raptor
-On ubuntu: sudo apt-get install raptor-utils
+serialize_graph.rb crawls the organization structure and outputs the data as rdf in N3 format.
 
-graph_image_creator.rb requires both RDF::Raptor and Graphviz gem to work.
-
-To install the graphviz gem:
-
-
-example.rb
-
-This a simplified version of graph_image_creator.rb that creates only text output of the organizational structure. The program starts from a seed uri (for example, http://vivo.ufl.edu/UniversityofFlorida) and recursively traverses all organizations it can find. 
-
-Run the program by typing:
-ruby example.rb
-
-graph_image_creator.rb
-
-This program works in the same fashion as example.rb but uses the graphviz gem to build an svg file of the output.
-
-Run the program by typing:
-ruby graph_image_creator.rb
-
-The output current is written to fdp.svg. This program is very much a work in progress.
+create_graph_output.rb reads the serialized output and displays the grah in serveral difference formats.
