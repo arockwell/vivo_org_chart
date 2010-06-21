@@ -1,2 +1,5 @@
 *.swp
 /pkg
+/examples/*.svg
+/examples/*.xml
+/examples/*.nt

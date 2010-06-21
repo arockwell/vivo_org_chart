@@ -14,12 +14,4 @@ org_chart.find_all_organizations
 
 VivoOrgChart::TextFormatter.format(org_chart)
 
-g = GraphViz.new(:G, "type" => "digraph", :sep => "1", :size => "170,300", :overlap => "orthoyx")
-g.node[:margin] = 0.0
-g.node[:fontsize] = 12
-g = VivoOrgChart::GraphvizFormatter.format(g, org_chart)
-g.output(:svg => "fdp.svg", :use => "twopi")
-
-File.open("graphml.xml", "w") {|f| f.write(VivoOrgChart::GraphMLFormatter.format(org_chart)) }
-
 org_chart.serialize('uf_org.nt')
