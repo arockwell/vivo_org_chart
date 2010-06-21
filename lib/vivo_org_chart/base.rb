@@ -49,8 +49,8 @@ module VivoOrgChart
     end
 
     def do_traverse_graph(org, depth, block)
-      block.call org, depth
       depth = depth + 1
+      block.call org, depth
       if org.sub_orgs.size != 0
         org.sub_orgs.each do |sub_org|
           do_traverse_graph(sub_org, depth, block)

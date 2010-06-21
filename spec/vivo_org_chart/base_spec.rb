@@ -43,6 +43,7 @@ module VivoOrgChart
         if count == 0
           org_chart.root_org.name.should == org.name
         elsif count == 1
+          depth.should == 1
           org_chart.root_org.sub_orgs[0].name.should == org.name
         end
         count = count + 1
