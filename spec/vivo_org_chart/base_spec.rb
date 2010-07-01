@@ -7,12 +7,19 @@ module VivoOrgChart
       org_chart = VivoOrgChart::Base.new(uri)
       org_chart.find_all_organizations
       org_chart.root_org.name.should == "College of Education"
-      org_chart.root_org.sub_orgs.size.should == 7
+      org_chart.root_org.sub_orgs.size.should == 9
+
       # I would like to be able to log in and check this, but don't want 
       # passwords in git
       #org_chart.root_org.dept_ids.size.should == 24
     end
 
+    it "should find all hasCollection properties" do
+      uri = "http://vivo.ufl.edu/individual/GeorgeASmathersLibraries"
+      org_chart = VivoOrgChart::Base.new(uri)
+      org_chart.find_all_organizations
+      org_chart.root_org.sub_orgs.size.should == 18
+    end
     it "should find an organization and all sub orgs in vivo given a file" do
       org = Org.new("test_org", "test_org_uri", nil, "test1")
       sub_org = Org.new("test_sub_org", "test_sub_org_uri", org)
