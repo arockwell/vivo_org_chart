@@ -26,7 +26,7 @@ module VivoOrgChart
       org.parent_org = parent_org
 
       SINGLE_VALUE_PROPERTIES.each do |k, v|
-        query = rdf.query(:subject => rdf_uri, :predicate => RDF::URI.new(v))
+        query = rdf.query(:subject => rdf_uri, :predicate => RDF::URI.new(v)).to_a
         if query[0] != nil
           value = query[0].object.literal? ? query[0].object.value : query[0].object.to_s
           org.send(k.to_s + '=', value)
@@ -34,7 +34,7 @@ module VivoOrgChart
       end
 
       MULTI_VALUE_PROPERTIES.each do |k, v|
-        query = rdf.query(:subject => rdf_uri, :predicate => RDF::URI.new(v))
+        query = rdf.query(:subject => rdf_uri, :predicate => RDF::URI.new(v)).to_a
         if query.size > 0
           a = []
           query.each do |q|
