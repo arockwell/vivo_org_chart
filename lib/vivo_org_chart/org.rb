@@ -14,13 +14,13 @@ module VivoOrgChart
     attr_accessor :name, :uri, :parent_org, :dept_ids
     attr_accessor :sub_org_uris, :sub_orgs 
 
-    def initialize(name="",  uri="", parent_org=nil, sub_org_uris=[], sub_orgs=[], dept_ids = [])
+    def initialize(name="",  uri="", parent_org=nil, sub_org_uris=[])
       @name = name
       @uri = uri
       @parent_org = parent_org
       @sub_org_uris = sub_org_uris
-      @sub_orgs = sub_orgs
-      @dept_ids = dept_ids
+      @sub_orgs = []
+      @dept_ids = []
     end
 
     def self.build_from_rdf(uri, parent_org, rdf)
