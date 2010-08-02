@@ -91,4 +91,37 @@ module VivoOrgChart
       return output
     end
   end
+  class InfoVisFormatter
+    @@counter = 0
+    def self.format(org_chart)
+      graph = {}
+      root_org = org_chart.root_org
+      root_org_hash = {}
+      root_org_hash[:id] = @@counter
+      root_org_hash[:name] = root_org.name.to_s
+      root_org_hash[:children] = []
+      root_org.sub_orgs.each do |sub_org|
+        if sub_org.name.to_s != ""
+          @@counter = @@counter + 1
+          sub_org_hash = {:id => @@counter, :name => sub_org.name.to_s}
+          sub_org_hash[:children] = do_format(sub_org)
+          root_org_hash[:children] << sub_org_hash
+        end
+      end
+      return root_org_hash
+    end
+
+    def self.do_format(org)
+      sub_org_hashes = []
+      org.sub_orgs.each do |sub_org|
+        if sub_org.name.to_s != ""
+          @@counter = @@counter + 1
+          sub_org_hash = {:id => @@counter, :name => sub_org.name.to_s}
+          sub_org_hash[:children] = do_format(sub_org)
+          sub_org_hashes << sub_org_hash
+        end
+      end
+      return sub_org_hashes
+    end
+  end
 end

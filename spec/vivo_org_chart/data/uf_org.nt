@@ -1,0 +1,9 @@
+<http://vivo.ufl.edu/individual/UniversityofFlorida> <http://www.w3.org/2000/01/rdf-schema#label> "University of Florida" .
+<http://vivo.ufl.edu/individual/UniversityofFlorida> <http://vivoweb.org/ontology/core#hasSubOrganization> "http://vivo.ufl.edu/individual/CollegeofFineArts" .
+<http://vivo.ufl.edu/individual/CollegeofFineArts> <http://www.w3.org/2000/01/rdf-schema#label> "College of Fine Arts" .
+<http://vivo.ufl.edu/individual/CollegeofFineArts> <http://vivoweb.org/ontology/core#hasSubOrganization> "http://vivo.ufl.edu/individual/SchoolofMusic" .
+<http://vivo.ufl.edu/individual/SchoolofMusic> <http://www.w3.org/2000/01/rdf-schema#label> "School of Music" .
+<http://vivo.ufl.edu/individual/CollegeofFineArts> <http://vivoweb.org/ontology/core#hasSubOrganization> "http://vivo.ufl.edu/individual/SchoolofTheatreDance" .
+<http://vivo.ufl.edu/individual/SchoolofTheatreDance> <http://www.w3.org/2000/01/rdf-schema#label> "School of Theatre and Dance" .
+<http://vivo.ufl.edu/individual/UniversityofFlorida> <http://vivoweb.org/ontology/core#hasSubOrganization> "http://vivo.ufl.edu/individual/FloridaSeaGrant" .
+<http://vivo.ufl.edu/individual/FloridaSeaGrant> <http://www.w3.org/2000/01/rdf-schema#label> "Florida Sea Grant" .

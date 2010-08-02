@@ -5,6 +5,8 @@ require 'rubygems'
 require 'rdf/raptor'
 require 'rdf/ntriples'
 require 'graphviz'
+require 'json'
+require 'pp'
 
 require 'vivo_org_chart/authenticate'
 require 'vivo_org_chart/base'
