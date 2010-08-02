@@ -5,13 +5,14 @@ module VivoOrgChart
     }
     MULTI_VALUE_PROPERTIES = {
       :dept_ids => "http://vivo.ufl.edu/ontology/vivo-ufl/deptID",
+      :types => "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
     }
     SUB_ORG_RELATION_PROPERTIES = {
       :sub_org_uris => "http://vivoweb.org/ontology/core#hasSubOrganization",
       :collection_within_uris => "http://vivo.ufl.edu/ontology/vivo-ufl/hasCollection",
     }
 
-    attr_accessor :name, :uri, :parent_org, :dept_ids
+    attr_accessor :name, :uri, :parent_org, :dept_ids, :types
     attr_accessor :sub_org_uris, :sub_orgs 
 
     def initialize(name="",  uri="", parent_org=nil, sub_org_uris=[])
@@ -21,6 +22,7 @@ module VivoOrgChart
       @sub_org_uris = sub_org_uris
       @sub_orgs = []
       @dept_ids = []
+      @types = []
     end
 
     def self.build_from_rdf(uri, parent_org, rdf)

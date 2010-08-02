@@ -15,14 +15,17 @@ org_chart = VivoOrgChart::Base.new(start_uri)
 org_chart.find_all_organizations('uf_org.nt')
 
 org_chart.prune do |org, depth|
-  if depth == 1
-    if !org.name.match(/^College|^Levin/)
+  if depth == 1 && !org.types.include?("http://vivoweb.org/ontology/core#College")
+    true
+  elsif depth == 2 && !org.types.include?("http://vivoweb.org/ontology/core#Department")
+    true
+  elsif depth > 2
     true
   else
-      false
-    end
+    false
   end
 end
+org_chart.serialize('prune.nt')
 
 VivoOrgChart::TextFormatter.format(org_chart)
 

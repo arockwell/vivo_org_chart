@@ -14,6 +14,13 @@ module VivoOrgChart
       #org_chart.root_org.dept_ids.size.should == 24
     end
 
+    it "should find all types of an organization" do
+      uri = "http://vivo.ufl.edu/individual/CollegeofEducation"
+      org_chart = VivoOrgChart::Base.new(uri)
+      org_chart.find_all_organizations
+      org_chart.root_org.types.include?("http://vivoweb.org/ontology/core#College").should == true
+    end
+
     it "should find all hasCollection properties" do
       uri = "http://vivo.ufl.edu/individual/GeorgeASmathersLibraries"
       org_chart = VivoOrgChart::Base.new(uri)
