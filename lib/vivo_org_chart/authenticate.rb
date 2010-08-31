@@ -5,12 +5,12 @@ module VivoOrgChart
   class Authenticate
     def self.authenticate(username, password)
       agent = Mechanize.new
-      password = Digest::MD5.hexdigest(password).upcase
-      agent.post('http://vivo.ufl.edu/login_process.jsp', { 
-        'home' => '1',
+      # must access the login page to setup the cookie before issuing a post
+      agent.get('http://vivo.ufl.edu/siteAdmin')
+      agent.post('http://vivo.ufl.edu/authenticate?home=1&login=block', { 
         'loginName' => username,
         'loginPassword' => password,
-        'loginSubmitMode' => 'Log in'
+        'loginForm' => 'Log in'
       })
       return agent
     end
